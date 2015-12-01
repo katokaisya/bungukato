@@ -1,26 +1,26 @@
 Rails.application.routes.draw do
-  resources :products
-  get 'admin/index'
+  get 'admin' => 'admin#index'
 
-  get 'sessions/new'
+  controller :sessions do
+    get  'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
 
-  get 'sessions/create'
+  scope '(:locale)' do
+    resources :users
+    resources :orders
+    resources :line_items
+    resources :carts
+    resources :products
+    root 'store#index', as: 'store'
+  end
+  # get 'store/index'
 
-  get 'sessions/destroy'
-
-  resources :users
-  get 'store/index'
-
-  resources :products
-  resources :orders
-  resources :line_items
-  resources :carts
-  resources :products
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -29,7 +29,8 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  # 
+  #   resources :products
+
   # Example resource route with options:
   #   resources :products do
   #     member do
@@ -67,5 +68,6 @@ Rails.application.routes.draw do
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-  #     #   end
+  #     resources :products
+  #   end
 end
