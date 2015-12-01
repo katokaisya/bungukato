@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  resources :users
+  get 'store/index'
+
+  resources :products
+  resources :orders
+  resources :line_items
+  resources :carts
+  resources :products
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,8 +28,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
+  # 
   # Example resource route with options:
   #   resources :products do
   #     member do
@@ -51,6 +66,5 @@ Rails.application.routes.draw do
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  #     #   end
 end
