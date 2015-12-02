@@ -1,14 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <title>Bungukato</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>文具のカトウ</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class='<%= controller.controller_name %>'>
+<div id="wrap"></div><!--id="wrap"-->
+<!-- ナビゲーションバー -->
+<nav class="paradeiser"><%= link_to (image_tag("logo.png", alt: "Logo", class: "paradeiser_logo")), store_path %>
+    <a href="expendables.html">
+        <div class="paradeiser_icon_canvas">
+            expendables
+        </div>
+        <span>よく使うもの</span>
+    </a>
+    <a href="new_item.html">
+        <div class="paradeiser_icon_canvas">
+            new item
+        </div>
+        <span>新商品</span>
+    </a>
+    <a href="gem_item.html">
+        <div class="paradeiser_icon_canvas">
+            gem item
+        </div>
+        <span>逸品文房具</span>
+    </a>
+    <div class="paradeiser_dropdown">
+        <a href="#paradeiser-more" id="paradeiser-dropdown">
+            <div class="paradeiser_icon_canvas">
+                三
+            </div>
+            <span>More</span>
+        </a>
+        <ul class="paradeiser_children" id="paradeiser-more">
+            <li><a href="expendables.html">Terms of Service</a></li>
+            <li><a href="about.html">会社案内</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+            <li id="greybox"><a href="#!"></a></li>
+        </ul>
+    </div>
+</nav>
+<!-- ナビゲーションバー -->
+<!-- ヒーローエリア -->
+<div id="box1">
+  <a href="index.html"><header>
+    <h1>文<span style="color:#E04343;">具</span>の<br/>
+        <span>カ<span style="color:#FFE800; text-shadow: 1px 1px 1px #000;">ト</span>ウ</span></h1>
+    <h2>Stationery</h2>
+  </header></a>
+</div><!-- ヒーローエリア -->
+<div id="box2"><!-- main(メイン) -->
+<div id="main"><!--メインカラム-->
+  <section id="news">
+    <h2>商品ラインナップ</h2>
+    <%= yield %>
+    <ul>
+        <li><time datetime="2015-09-25">2015年09月25日</time>2016年のカレンダー発売開始</li>
+        <li><time datetime="2015-03-03">2015年03月03日</time>春の新生活応援フェア</li>
+        <li><time datetime="2015-02-20">2015年02月20日</time>期間限定の割引プラン</li>
+        <li><time datetime="2015-03-14">2015年02月14日</time>バレンタインフェア</li>
+    </ul>
+  </section>
+</div><!--メインカラム-->
 
-<%= yield %>
+<div id="sub"><!--サイドバー-->
+<aside>
+    <div id="side">
+    <p><%= @time %></p>
+    <ul>
+      <li><%= link_to t('.home'), store_path %></li>
+      <li><a href="http://www..../faq"><%= t('.questions') %></a></li>
+      <li><a href="http://www..../news"><%= t('.news') %></a></li>
+      <li><a href="http://www..../contact"><%= t('.contact') %></a></li>
+      <%  if @cart %>
+      <li><%= link_to t('.show'), cart_path(@cart) %></li>
+      <% end %>
+    </ul>
+<!--サイドバー管理機能の追加-->
+    <% if session[:user_id] %>
+    <p><%= @user.name %></p>
+    <ul>
+      <li><%= link_to '注文',   orders_path %></li>
+      <li><%= link_to '商品',   products_path %></li>
+      <li><%= link_to 'ユーザー',   users_path %></li>
+    </ul>
+    <%= button_to 'ログアウト', logout_path,method: :delete %>
+    <% end %>
+<!--サイドバー管理機能の追加-->
+    <p><span class="red"><%= @counter %></span></p>
+  </div>
+
+    <div class="accordion"><!--アコーディオンメニュー-->
+    <label id="acco1" for="adBtn1-1"><img src="img/hanabi.png" alt="">システム手帳</label>
+    <input type="checkbox" id="adBtn1-1">
+      <div class="accordionIn"><!-- /.accordionIn -->
+      <p> <a href="gem_item.html/diary">選び抜かれた高品質な革を職人が丹念に仕上げた、丈夫で機能的なシステム手帳です。バイブルサイズは、どなたにもお使いいただけるスタンダードな大きさ。</a></p>
+      </div>
+    <label id="acco2" for="adBtn1<!-- /.accordionIn -->-2"><img src="img/hanabi.png" alt="">地球儀</label>
+    <input type="checkbox" id="adBtn1-2">
+      <div class="accordionIn"><!-- /.accordionIn -->
+      <p><a href="gem_item.html#globe">地球儀というと、何の変哲もない商品のように思われがちですが、新しい作成法、新しいデザインを得て、非常に興味深い、おしゃれでインテリア性の高い商品になりました。</a></p>
+      </div><!-- /.accordionIn -->
+  </div><!--アコーディオンメニュー-->
+
+    <h3>文具のカトウ</h3>
+    <p>〒123-xxxx<br>
+    東京都江戸川区小峰4-x-x<br>
+    TEL：03-3633-xxxx<br>
+    FAX：03-3635-xxxx</p>
+    <p>無料配送サービス
+    午前中に、FAXでご注文を頂けば、当日中に無料にて配送いたします。
+    取り扱い品目：一般事務用品、製図用品</p>
+    <p class="img_map"><a href="#open01"><img src="img/map.gif" alt="地図" id="cl">※クリックで拡大します</a></p>
+    <!--拡大地図-->
+    <div id="modal">
+      <div id="open01">
+        <a href="#" class="close_overlay">×</a>
+        <div class="modal_window">
+          <h2>Access Map</h2>
+          <p><img src="img/map.gif" alt="地図"></p>
+          <a href="#cl">【×】CLOSE</a>
+        </div><!--/.modal_window-->
+      </div><!--/#open01-->
+    </div><!--/#modal-->
+    <!--拡大地図-->
+</aside>
+</div><!--サイドバー-->
+</div><!--main(メイン)-->
+
+
+
+
+<!--フッター部分-->
+<div id="box3">
+<footer>
+  <p id="pagetop" class="btn01 cleafix"><a href="#top">&and;ページの先頭へ&and;</a></p>
+    <address>&copy; stationery shop KATO</address>
+  <p id="pageback" class="btn01 cleafix"><a href="javascript:history.go(-1)">&lt;&lt;前ページに戻る</a></p>
+</footer>
+</div>
+<!--フッター部分-->
 
 </body>
 </html>
