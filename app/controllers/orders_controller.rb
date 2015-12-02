@@ -15,6 +15,11 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    @cart = current_cart
+    if @cart.line_items.empty?
+      redirect_to store_url, notice:"カートは空です"
+      return
+    end
     @order = Order.new
   end
 
