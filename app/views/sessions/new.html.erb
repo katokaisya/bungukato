@@ -1,2 +1,21 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="depot_form">
+  <% if flash[:alert]%>
+  <p id="notice"><%= flash[:alert]%></p>
+  <% end %>
+
+  <%= form_tag do%>
+  <legend>ログインしてください</legend>
+  <div class="field">
+    <%= label_tag :name,'名前' %><br>
+    <%= text_field_tag :name,params[:name] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password,'パスワード' %><br>
+    <%= text_field_tag :password,params[:password] %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "ログイン"%>
+  </div>
+</fieldset>
+<% end %>
+</div>

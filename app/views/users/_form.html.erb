@@ -1,25 +1,33 @@
-<%= form_for(@user) do |f| %>
+<div class="depot_form">
+  <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :password_digest %><br>
-    <%= f.text_field :password_digest %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <fieldset>
+    <legend>ユーザ情報の入力</legend>
+    <div class="field">
+      <%= f.label :name,'名前' %><br>
+      <%= f.text_field :name,size:40 %>
+    </div>
+    <div class="field">
+    <%= f.label :password,'パスワード' %><br>
+      <%= f.text_field :password,size:40 %>
+    </div>
+    <div>
+      <%= f.label :password_confirmation,'確認'%><br>
+      <%= f.password_field :password_confirmation,size:40%>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
+  <% end %>
+</div>
