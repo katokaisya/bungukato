@@ -3,10 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :authorize
-
+    before_action :find_user
 
 
   private
+  def find_user
+    @user =User.find_by(id: session[:user_id])# ユーザー名を使えるようにする
+  end
 
     def authorize
       unless User.find_by(id:session[:user_id])
