@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only:[:name, :create]
+  skip_before_action :authorize, only:[:name, :create,:show]
 
   # GET /orders
   # GET /orders.json
