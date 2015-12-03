@@ -147,7 +147,7 @@ footer{
   float: right;
 }
 
-.store #box2{position: relative; overflow: hidden; height: 520px;}
+.store #box2{position: relative; overflow: scroll; height: 520px;}
 .store #box2 #main{  animation: an_main 2s  ease-in-out 0s 1 normal;}
 @keyframes an_main {
 0% {  position: absolute; left: 100%;}
