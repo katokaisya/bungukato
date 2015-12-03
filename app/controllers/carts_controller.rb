@@ -55,7 +55,7 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart = current_cart
+    # @cart = current_cart
     @cart.destroy
     session[:cart_id] = nil
 
@@ -73,11 +73,11 @@ class CartsController < ApplicationController
       rescue ActiveRecord::RecordNotFound
         logger.error "無効なカート#{params[:id]}にアクセスしようとしました"
         redirect_to store_url, notice: '無効なカートです'
-      else
-        respond_to do |format|
-          format.html #show.html.erb
-          format.json {render json: @cart}
-        end
+      # else
+      #   respond_to do |format|
+      #     format.html #show.html.erb
+      #     format.json {render json: @cart}
+      #   end
       end
     end
 
