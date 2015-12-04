@@ -15,3 +15,10 @@
     </div>
   </div>
 <% end %>
+<section id="news">
+  <ul>
+    <% @news.reverse_each do |news| %>
+        <li><time><%= news.news_date %></time><%= news.news_title %></li>
+    <% end %>
+  </ul>
+  </section>

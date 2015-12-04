@@ -59,7 +59,7 @@
   <%= yield %>
   <section id="news">
   <ul>
-    <% News.reverse_each do |news| %>
+    <% @news.reverse_each do |news| %>
         <li><time><%= news.news_date %></time><%= news.news_title %></li>
     <% end %>
   </ul>
