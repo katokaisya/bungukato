@@ -111,4 +111,16 @@ News.create([
   }
   ])
 
+# User
+# いったんきれいにお掃除する
+User.delete_all
+
+# 新しく商品データを作成する
+User.create([
+  {
+    id: 1,
+    name: 'admin',
+    password: 'password'
+  }
+  ])
 
