@@ -58,12 +58,11 @@
 <div id="main"><!--メインカラム-->
   <%= yield %>
   <section id="news">
-    <ul>
-        <li><time datetime="2015-09-25">2015年09月25日</time>2016年のカレンダー発売開始</li>
-        <li><time datetime="2015-03-03">2015年03月03日</time>春の新生活応援フェア</li>
-        <li><time datetime="2015-02-20">2015年02月20日</time>期間限定の割引プラン</li>
-        <li><time datetime="2015-03-14">2015年02月14日</time>バレンタインフェア</li>
-    </ul>
+  <ul>
+    <% @news.reverse_each do |news| %>
+        <li><time><%= news.news_date %></time><%= news.news_title %></li>
+    <% end %>
+  </ul>
   </section>
 </div><!--メインカラム-->
 
