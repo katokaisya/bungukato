@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//アコーディオンvar ac=document.getElementById("acco");
+document.getElementById("acco1");addEventListener("click",reS,false);
+document.getElementById("acco2");addEventListener("click",reS,false);
+document.getElementById("acco3");addEventListener("click",reS,false);
+function reS(){
+  console.log(event.target);
+  //event.target.style.backgroundImage = 'url(css/img/close.png)';
+  event.target.classList.toggle('active');
+}
