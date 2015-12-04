@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :news
   get 'admin' => 'admin#index'
 
   controller :sessions do
