@@ -26,7 +26,7 @@ Product.create([
       and most exciting dynamic language out there.
       </p>},
     image_url: 'ruby.jpg',
-    price: 49.95
+    price: 4995
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ Product.create([
       CoffeeScript is JavaScript done right.
       </p>},
     image_url: 'cs.jpg',
-    price: 36.00
+    price: 3600
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ Product.create([
       Rails Test Prescriptions is a comprehensive guide to testing.
       </p>},
     image_url: 'rtp.jpg',
-    price: 45.00
+    price: 4500
   },
   {
     id:4,
@@ -56,7 +56,7 @@ Product.create([
       重量：502g<br>
       </p>},
     image_url:'diary.jpg',
-    price: 45.00
+    price: 2500
   },
   {
     id:5,
@@ -67,7 +67,7 @@ Product.create([
       重量：1.4kg
       </p>},
     image_url: 'globe.jpg',
-    price: 150.00
+    price: 2500
   }
   ])
 
