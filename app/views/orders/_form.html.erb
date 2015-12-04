@@ -29,6 +29,6 @@
                   prompt:t('お支払い方法を選んでください') %>
   </div>
   <div class="actions">
-    <%= f.submit t('.submit') %>
+    <%= f.submit t('.submit', data: {disable_with: '処理中...'}) %>
   </div>
 <% end %>
