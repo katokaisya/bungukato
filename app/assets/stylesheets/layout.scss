@@ -45,12 +45,15 @@ a:hover img{  opacity: 0.8; }
   opacity: 1.0;
   text-align: center;
   color: #666;
+  border:0;
+  font-size: 300%;
+  line-height: 150%;
 }
 #box2{
   background-color: #f60;
   color: #efefef;
 }
-#box2 h2{background-color: #fff; color: #f60;  padding: 20px;}
+#box2 h1{background-color: #fff; color: #f60;  padding: 20px;}
 #box3{
   background-color: #f60;
 }
@@ -347,10 +350,10 @@ body{position: relative;}
 .depot_form{
   fieldset{
     background: #efe; border-radius: 5px;
-    legend{ color:#dfd; background: #141; font-family: sans-serif;  padding: 0.2em 1em; border-radius: 5px;}
+    legend{ color:#dfd; background: #141; font-family: sans-serif;  padding: 0.2em 5em; border-radius: 5px; margin: 10px auto;}
   }
   form{
-    label{  width: 6em; float: left;  text-align: right;  padding-top: 0.2em; margin-right: 0.1em;  display: block; }
+    label{  width: 6em; float: left;  text-align: right;  padding-top: 0.2em; margin-right: 0.1em;  display: block;  color: #333;}
     select,textarea,input{margin-left: 0.5em;}
     .submit{margin-left: 4em;}
     br{ display: none;}
@@ -361,3 +364,14 @@ input[type=submit]{ border-radius: 10px;  background-color: defoult;  margin-bot
 
 .center{ text-align: center;}
 .locale{  float:right;  margin:-0.25em 0.1em;}
+
+.carts,.orders,#side #cart{
+  .carts_title{ font:120% bold;}
+  .item_price,.total_line{ text-align: right;}
+  .total_line .total_cel{ font-weight: bold;  border-top: 1px solid #595;}
+}
+input[type="submit"], input[type="reset"], input[type="button"], button{
+  cursor: pointer;
+  cursor: hand;
+}
+.actions{ text-align: center; }
