@@ -1,0 +1,377 @@
+*{margin: 0;  padding: 0;
+font-family: "ヒラギノ角ゴPro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"MS Pゴシック","MS PGothic",sams-serif;
+max-width:100% !important;
+}
+body{  background-color: #efefef; }
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+  max-width: 100% !important;
+  height:auto;
+}
+a {  text-decoration: none; }
+a:hover img{  opacity: 0.8; }
+#box1::after,#box2::after,#box3::after,footer::after{
+  content: " ";
+  display: block;
+  clear: both;
+  font-size: 0;
+}
+
+#box1{
+  animation: anime1 12s ease-in-out 0s infinite normal;
+  background: url(<%= asset_path('bg3.png') %>) no-repeat right bottom #fff,
+              url(<%= asset_path('bg4.png') %>) no-repeat right bottom #d4c4b4,
+              url(<%= asset_path('bg5.png') %>) no-repeat right bottom #ebdcca;
+  box-shadow: 5px 5px 5px rgba(200,200,200,0.4);
+}
+@keyframes anime1 {
+0%,75%,100% { background: url(<%= asset_path('bg3.png') %>) no-repeat right bottom #fff;}
+25% { background: url(<%= asset_path('bg4.png') %>) no-repeat right bottom #d4c4b4;}
+50% { background: url(<%= asset_path('bg5.png') %>) no-repeat right bottom #ebdcca;}
+}
+
+#box1 header{
+  width: 40%;
+  padding: 5%;
+  margin: 0 auto;
+  background: url(<%= asset_path('bg1.png') %>) repeat;
+  border-radius: 5%;
+  box-shadow: 5px 5px 5px rgba(100,100,100,0.4);
+}
+#box1 header h1,#box1 header h2{
+  opacity: 1.0;
+  text-align: center;
+  color: #666;
+  border:0;
+  font-size: 300%;
+  line-height: 150%;
+}
+#box2{
+  background-color: #f60;
+  color: #efefef;
+}
+#box2 h1{background-color: #fff; color: #f60;  padding: 20px;}
+#box3{
+  background-color: #f60;
+}
+
+nav ul{
+list-style-type: none;
+}
+#news ul{
+  list-style-type: none;
+  padding-left: 0;
+}
+#news ul li{
+  padding: 20px 0 20px 150px;
+  border-bottom: 1px dotted #ccc;
+  color: #eee;
+  text-indent: -150px;
+}
+#news ul li time{
+  display: inline-block;
+  width: 150px;
+  font-weight: bold;
+  color: #ddd;
+  text-indent: 0;
+}
+aside p.img_map{text-align: center;}
+#box3{  clear: both;  width: 100%;  background-color:rgba(0,0,0,.70);}
+
+address{
+  clear: both;
+  color: #9b9b9b;
+  text-align: center;
+  font-style: normal;
+}
+    ul{
+      padding: 0;
+      li{ list-style: none; }
+}
+
+
+/*==レスポンシブルメニューバーカスタマイズ==*/
+.paradeiser_dropdown a{width:100%;}
+img.paradeiser_logo { max-width:40px!important;}
+.f_right{float:right;}
+
+/* CSSの条件振り分け*/
+/*=====================スマホ用============================================*/
+@media screen and (max-width: 640px) {
+  #box1,#box2,#box3{
+  width: 96%;
+  padding: 10px 2%;
+}
+#main,#sub{ padding: 2%;}
+#sub{  background-color: rgba(255,255,255,0.2); }
+aside h3,aside p{  margin: 10px 5%; }
+aside p{font-size: 80%;}
+aside p img{  background-color: rgba(255,255,255,0.5);}
+footer{
+  width: 96%;
+  padding: 2%;
+}
+
+}
+/*=====================タブレット用============================================*/
+@media screen and (min-width: 640px) {
+  #box1,#box2,#box3{
+  width: 80%;
+  padding:10px 10%;
+}
+#sub{  background-color: rgba(255,255,255,0.3);}
+footer{
+  width: 96%;
+  padding: 2%;
+}
+}
+/*=====================PC用============================================*/
+@media screen and (min-width: 768px) {
+  #box2 footer{
+  width: 80%;
+  padding:10px 10%;
+}
+
+#box1{width: 80%;padding: 10%;}
+#main{
+  width: 60%;
+  min-width: 200px;
+  max-width: 450px;
+  float: left;
+}
+#sub{
+  min-width: 200px;
+  max-width: 300px;
+  width: 38%;
+  background-color: rgba(255,255,255,0.3);
+  float: right;
+}
+
+.store #box2{position: relative; overflow: scroll; height: 520px;}
+.store #box2 #main{  animation: an_main 2s  ease-in-out 0s 1 normal;}
+@keyframes an_main {
+0% {  position: absolute; left: 100%;}
+100% {  position: absolute; left: 10%;}
+}
+.store #box2 #sub{  animation: an_sub 2s  ease-in-out 0s 1 normal;}
+@keyframes an_sub {
+0% {  position: absolute; right: 100%;}
+100% {  position: absolute; right: 10%;}
+}
+
+aside h3,aside p,aside ul{  margin: 10px 5%;}
+aside p{font-size: 80%;}
+aside p img{  background-color: rgba(255,255,255,0.5);}
+
+footer{
+  width: 80%;
+  padding: 2%;
+}
+}
+/*==アコーディオン==*/
+.accordion {  padding:5px 10px; clear:both; }
+.accordion label{
+  display: block;
+  margin-top: 5px;
+  padding: 21px 5px;
+  background: url(<%= asset_path('img/open.png') %>)no-repeat 95% center #f93;
+  text-indent:1em;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px rgba(3,2,0,0.8);
+}
+.accordion label img{ margin-right:10px;  vertical-align:-25%;}
+.accordion input[type="checkbox"]{
+  display: none;
+}
+.accordion .accordionIn {
+  overflow: hidden;
+  height: 0;
+  text-decoration: none;
+  -webkit-transition: height .5s ease-out;
+  transition: height .5s ease-out;
+}
+.accordion input[type="checkbox"]:checked + .accordionIn{
+  width:99.5%;
+  display:block;
+  height:100px;
+  background-color:#fff;
+  color: #666;
+  border: 1px solid #f93;
+  box-shadow: 1px 1px 2px rgba(3,2,0,0.8);
+}
+.accordion label img{ margin-right:10px;  vertical-align:-25%;}
+.accordion label.active{
+  background: url(<%= asset_path('img/close.png') %>)no-repeat 95% center #f93;
+}
+/*ボタン*/
+#pageback,#pagetop {
+  margin-top: 0;
+  margin-bottom: 0;
+  float: right;
+}
+#pageback a,#pagetop a {
+  display: block;
+  text-align: center;
+  min-height: 16px;
+  padding: 6px 10px;
+}
+.btn01 {
+    font-size: 70%;
+    color: #fff;
+    text-decoration: none;
+    background-color: rgba(255,255,255,0.5);
+    display: block;
+    height: 30px;
+    line-height: 20px;
+    border-radius: 5%;
+    /* ここで動く速度とか設定 */
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+}
+.btn01:hover {
+    transform: rotate(720deg);
+    -webkit-transform: rotate(720deg);
+}
+
+/*===========ライトボックス風=============*/
+#open01{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+}
+.close_overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    text-indent: -9999px;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 5;
+}
+.modal_window {
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -200px;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    display: block;
+    background: #fff;
+    position: absolute;
+    z-index: 10;
+    border-radius: 5% 5%;
+}
+.modal_window h2 {  border-radius: 15% 15%; }
+
+/* CSS3 ModalWindow SET
+-------------------------- */
+@-webkit-keyframes modalFadeIn {
+    0% {opacity:0;display:block;}
+    100% {opacity:0.9;}
+}
+div#modal div:target {
+    -webkit-animation-name: modalFadeIn; 
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+    opacity: 0.9;
+    display:block;
+}
+
+
+
+body{position: relative;}
+#wrap{position: absolute;  display: block;  animation: body_main 1s  ease-in-out 0s 1 normal;}
+@keyframes body_main {
+0% {top: 0%;left: 0%;  width: 100%; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 100;}
+100% {top:50%;left: 50%;  width: 0%; height: 0vh;background-color: rgba(0,0,0,0.5); z-index: 0;}
+}
+
+.p10 {padding: 10px;}
+
+/*=========================================================================================*/
+
+
+#banner{
+  background: #9c9;
+  padding:10px;
+  border-bottom: 2px solid;
+  font:small-caps 40px/40px "Times New Roman",serif;
+  color: #282;
+  text-align: center;
+  img{float: left;}
+}
+#notice{
+  color: #000!important;
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+#columns{
+  background: #141;
+
+  #main{  margin-left: 17em;  padding: 1em; background: white;}
+  #side{
+    float: left;
+    padding: 1em 2em;
+    width:13em;
+    background: #141;
+    p{color: #fff;}
+    form,div{  display: inline;  }
+    input{  font-size: small; }
+    #cart{  font-size: smaller; color: white;
+      table{  border-top: 1px dotted #595;  border-bottom: 1px dotted #595;  margin-bottom: 10px;  margin-left: 0;}
+    }
+    ul{
+      padding: 0;
+
+      li{
+        list-style: none;
+
+        a{  color: #bfb;  font-size: small;}
+      }
+    }
+  }
+}
+.red{ color: red; font-size: 120%;}
+
+/* 注文フォーム用 */
+.depot_form{
+  fieldset{
+    background: #efe; border-radius: 5px;
+    legend{ color:#dfd; background: #141; font-family: sans-serif;  padding: 0.2em 5em; border-radius: 5px; margin: 10px auto;}
+  }
+  form{
+    label{  width: 6em; float: left;  text-align: right;  padding-top: 0.2em; margin-right: 0.1em;  display: block;  color: #333;}
+    select,textarea,input{margin-left: 0.5em;}
+    .submit{margin-left: 4em;}
+    br{ display: none;}
+    div{  margin-bottom:5px;}
+  }
+}
+input[type=submit]{ border-radius: 10px;  background-color: defoult;  margin-bottom: 5px; padding-left: 10px; padding-right: 10px;}
+
+.center{ text-align: center;}
+.locale{  float:right;  margin:-0.25em 0.1em;}
+
+.carts,.orders,#side #cart{
+  .carts_title{ font:120% bold;}
+  .item_price,.total_line{ text-align: right;}
+  .total_line .total_cel{ font-weight: bold;  border-top: 1px solid #595;}
+}
+input[type="submit"], input[type="reset"], input[type="button"], button{
+  cursor: pointer;
+  cursor: hand;
+}
+.actions{ text-align: center; }
