@@ -13,6 +13,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Product
 # いったんきれいにお掃除する
 Product.delete_all
 
@@ -68,6 +69,45 @@ Product.create([
       </p>},
     image_url: 'globe.jpg',
     price: 2500
+  }
+  ])
+
+
+# News
+# いったんきれいにお掃除する
+News.delete_all
+
+# 新しく商品データを作成する
+News.create([
+  {
+    id: 1,
+    news_date: '2015年02月14日',
+    news_title: 'バレンタインフェア'
+  },
+  {
+    id: 2,
+    news_date: '2015年02月20日',
+    news_title: '期間限定の割引プラン'
+  },
+  {
+    id: 3,
+    news_date: '2015年03月03日',
+    news_title: '春の新生活応援フェア'
+  },
+  {
+    id:4,
+    news_date: '2015年09月25日',
+    news_title: '2016年のカレンダー発売開始'
+  },
+  {
+    id:5,
+    news_date:'2015年12月20日',
+    news_title: 'Xマス応援フェア'
+  },
+  {
+    id:6,
+    news_date:'2016年01月01日',
+    news_title: '元旦恒例の福袋販売開始'
   }
   ])
 
